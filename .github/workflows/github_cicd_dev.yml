@@ -1,7 +1,7 @@
 name: Azure Python 3.10
 on: [push]
 jobs:
-  build:
+  build_python_10:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,11 +18,7 @@ jobs:
     - name: Test
       run: |
         make test
-
-name: Azure Python 3.8
-on: [push]
-jobs:
-  build:
+  build_python_8:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
