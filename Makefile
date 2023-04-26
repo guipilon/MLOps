@@ -1,3 +1,6 @@
+VENV_PATH='env/bin/activate'
+ENVIRONMENT_VARIABLE_FILE='.env'
+
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
@@ -10,8 +13,9 @@ test:
 
 clean: 
 	rm -rf __pycache__
+	rm -rf venv
 
-run:
+run: 
 	python hello.py
 
 format:
