@@ -6,17 +6,19 @@ install:
 		pip install -r requirements.txt
 
 lint:
-	python -m pylint --disable=R,C hello.py
+	python -m pylint --disable=R,C main.py
 
 test:
-	python -m pytest -vv test_hello.py
+	python -m pytest -vv test_main.py
 
 clean: 
 	rm -rf __pycache__
 	rm -rf venv
 
 run: 
-	python hello.py
+	export FLASK_APP=main.py
+	export FLASK_ENV=development
+	python -m flask run
 
 format:
 	python -m isort -r .
