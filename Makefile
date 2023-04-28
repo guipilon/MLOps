@@ -6,20 +6,22 @@ install:
 		pip install -r requirements.txt
 
 lint:
-	python -m pylint --disable=R,C main.py
+	python3 -m pylint --disable=R,C main.py
 
 test:
-	python -m pytest -vv test_main.py
+	python3 -m pytest -vv test_main.py
 
 clean: 
 	rm -rf __pycache__
 	rm -rf venv
 
-run: 
-	export FLASK_APP=main.py
-	export FLASK_ENV=development
-	python -m flask run
+venv/bin/activate: requirements.txt
+	python3 -m venv venv
+	./venv/bin/pip install -r requirements.txt
+
+run: venv/bin/activate
+	./venv/bin/python3 main.py
 
 format:
-	python -m isort -r .
-	python -m black -l 79 .
+	python3 -m isort -r .
+	python3 -m black -l 79 .
