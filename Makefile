@@ -1,15 +1,15 @@
-VENV_PATH='env/bin/activate'
-ENVIRONMENT_VARIABLE_FILE='.env'
+APP_NAME=app.py
+APP_DIR=webapp
 
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 
 lint:
-	python3 -m pylint --disable=R,C main.py
+	python3 -m pylint --disable=R,C $(APP_DIR)/$(APP_NAME)
 
 test:
-	python3 -m pytest -vv test_main.py
+	python3 -m pytest -vv $(APP_DIR)/test_$(APP_NAME)
 
 clean: 
 	rm -rf __pycache__
@@ -20,7 +20,7 @@ venv/bin/activate: requirements.txt
 	./venv/bin/pip install -r requirements.txt
 
 run: venv/bin/activate
-	./venv/bin/python3 main.py
+	./venv/bin/python3 $(APP_DIR)/$(APP_NAME)
 
 format:
 	python3 -m isort -r .

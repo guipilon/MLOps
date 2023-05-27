@@ -1,3 +1,4 @@
 ~/.MLOps/*
 __pycache__/*
 venv/*
+*.onnx

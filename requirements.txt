@@ -3,3 +3,9 @@ pytest
 black
 isort
 flask
+
+simpletransformers
+tensorboard
+transformers
+torch
+onnxruntime
